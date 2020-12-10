@@ -1,0 +1,63 @@
+<div class="container-fluid">
+  <!-- <div class="container"> -->
+  <div class="row container">
+    <div class="col col-md-6 col-sm-12 decorator">
+      <img src="/assets/images/login.svg" alt="" />
+    </div>
+    <div class="col col-md-6 form col-sm-12" id="form">
+      <h4>Member Login</h4>
+      <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+        <div class="form-group">
+          <input
+            name="email"
+            class="form-control"
+            placeholder="example@me.com"
+            [(ngModel)]="user.email"
+            #emailField="ngModel"
+            pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+            [class.field-error]="form.submitted && emailField.invalid"
+            required
+          />
+          <small [hidden]="!form.submitted || emailField.valid"
+            >Please enter your email</small
+          >
+        </div>
+        <div class="form-group">
+          <input
+            name="password"
+            type="password"
+            [(ngModel)]="user.password"
+            placeholder="password"
+            #passwordField="ngModel"
+            [class.field-error]="form.submitted && passwordField.invalid"
+            required
+            pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{5,}$"
+          />
+          <small [hidden]="!form.submitted || passwordField.valid"
+            >Please enter a valid password</small
+          >
+          <small [hidden]="!form.submitted || passwordField.dirty"
+            ><i
+              >password must contain atleast one uppercase character, one
+              lowercase character and a special character</i
+            ></small
+          >
+        </div>
+        <div [hidden]="!postError" class="alert alert-danger">
+          {{ postErrorMessage }}
+        </div>
+        <div [hidden]="!postSuccess" class="alert alert-success">
+          {{ postSuccessMessage }}
+        </div>
+        <button type="submit">Login</button>
+      </form>
+      <div class="other-options">
+        <p>
+          New to BoleNiarTech?
+          <a routerLink="/signup" routerLinkActive="active">Sign Up Here</a>
+        </p>
+      </div>
+    </div>
+    <!-- </div> -->
+  </div>
+</div>

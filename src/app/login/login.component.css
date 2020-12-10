@@ -1,0 +1,112 @@
+ /* .ng-invalid{
+   border: 1px solid red;} */
+
+
+  
+
+.container{
+        background: #fff;
+        border-radius: 5px;
+        transform: translate(50%,15%);
+        width: 50vw !important;
+        height: auto;
+        max-height:80vh;
+        padding: 20px;
+    }
+.decorator{
+            margin-top: 30px;
+            padding: 10px;
+        }
+     .decorator img{
+            width: 90%;
+            height: 70%;
+            margin-top: 40px;
+            margin-left: 40px;
+        }
+
+     .other-options p{
+            margin-top: 10px;
+            font-size: 13px;
+            margin-left: 50px;
+            font-weight: 600;
+        }
+
+.container .form{
+        margin-top: 80px;
+        z-index: 10;
+        height: auto;
+    }
+    
+.container .form small{
+        color: red;
+        margin-left: 10px;
+    }
+.container .form .text-danger{
+        color: red;
+        margin-left: 10px;
+    }
+     .container h4{
+    margin-left: 30%;
+    margin-bottom: 20px;
+    }
+    .container .form input{
+        display: block;
+        margin-top: 15px;
+        border: none;
+        background: #eee;
+        height: 40px;
+        width: 95%;
+        border-radius: 50px;
+        padding: 10px;
+    }
+ .container .form input:focus, .container form button{
+        outline: none;
+    }
+.container .form input::placeholder{
+        color: #aaa;
+    }
+ .container form button{
+        width: 95%;
+        height: 40px;
+        border: none;
+        border-radius: 50px;
+        margin-top: 10px;
+        background: purple;
+        color: #fff;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+
+.field-error{
+    color: red;
+}
+
+@media only screen and (min-width:310px) and (max-width:480px){
+    .container-fluid{
+        width: 100%;
+        height: 100vh;
+        overflow-y: auto;
+    }
+    .container{
+        width: 90% !important;
+        margin-left: 5%;
+        margin-top: 10%;
+        height: auto;
+        max-height: fit-content;
+        transform: translate(0%,20%);
+    }
+    .container .form{
+        width: 90% !important;
+        margin-top: 5px;
+    }
+    .form h4{
+        margin-top: 5px;
+        margin-left: 20%;
+    }
+    .decorator{
+        display: none;
+    }
+    .other-options p{
+        margin-left: 0px;
+    }
+}

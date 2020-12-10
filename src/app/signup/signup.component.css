@@ -1,0 +1,160 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+.ng-invalid:not(form).ng-touched{
+    border: 1px solid red;
+    transition: all 0.35s ease;
+}
+
+small{
+    color: red;
+}
+
+.container{
+    background: #fff;
+    border-radius: 5px;
+    transform: translate(50%,10%);
+    width: 50vw !important;
+    height: auto;
+    padding: 20px;
+    transition: all 0.4s ease-in;
+}
+
+.container #decorator{
+    /* margin-top: 10px; */
+    /* padding: 10px; */
+    width: 100%;
+    /* height: 100%; */
+    position: relative;
+}
+.container #decorator .overlay{
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 100%;
+    height: 109%;
+    content: "";
+    background: linear-gradient(to right, blue,purple);
+    z-index: 100;
+    opacity: .5;
+}
+
+.container #decorator img{
+    width: 85%;
+    height: 70%;
+    margin-top: 40px;
+    margin-left: 20px;
+}
+.container form{
+    padding: 5px;
+}
+.container form input:not([type='checkbox']){
+    display: block;
+        margin-top: 15px;
+        border: none;
+        background: #eee;
+        height: 40px;
+        width: 95%;
+        border-radius: 50px;
+        padding: 10px;
+}
+
+.container form input:focus{
+    outline: none !important;
+    border-bottom: 2px solid red;
+}
+form button{
+     width: 95%;
+    height: 40px;
+    border: none;
+    border-radius: 50px;
+    margin-top: 10px;
+    background: purple;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+form button:disabled,form button[disabled]{
+    background:grey;
+    color:#eee;
+}
+.container form #selectCountry{
+    display: block;
+    margin-top: 5px;
+    border: none;
+    border-bottom: 2px solid #eee;
+    border-radius: 0px;
+    height: 25px;
+    width: 260px;
+    
+}
+.container form #selectCountry:focus{
+    outline:none;
+}
+form #locationLabel{
+    font-size: 13px;
+    margin: 5px;
+}
+form label{
+    font-size: 13px;
+}
+
+form small{
+    color: red;
+}
+
+
+.container p{
+    font-size: 13px;
+}
+.container p a button{
+    background: none;
+    border: none;
+    color: green;
+    font-size: 14px;
+    font-weight: 600;
+}
+.success{
+     background: #f2edda;
+    padding: 7px;
+    font-size: .9em;
+    margin-bottom: 5px;
+    display: inline-block;
+    animation: 2s alertAnim forwards;
+}
+.fail{
+    background:#ff6c00;
+    color:#fff;
+}
+
+@keyframes alertAnim {
+    from{
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@media only screen and (min-width:310px) and (max-width:480px){
+    .container-fluid{
+        width: 100%;
+        height: 100vh;
+        overflow-y: auto;
+    }
+    .container{
+        width: 90% !important;
+        margin-left: 5%;
+        margin-top: 10%;
+        height: auto;
+        transform: translate(0%,10%);
+    }
+    #decorator{
+        display: none;
+    }
+}

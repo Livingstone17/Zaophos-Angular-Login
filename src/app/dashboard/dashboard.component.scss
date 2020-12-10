@@ -1,0 +1,31 @@
+.container{
+    background: #eee;
+    transform: translate(0%,10%);
+    width: 95% !important;
+    height: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+
+    & a{
+        cursor: pointer;
+        color: purple;
+        margin: 20px;
+        transition: all .35s ease-in;
+    }
+    & a:hover{
+        font-weight: 600;
+        color:blue;
+    }
+}
+
+h2{
+    color: #000;
+    margin-top: 10px;
+}
+.card{
+    margin: 5px;
+    padding: 5px !important;
+    background: #fff !important;
+    box-shadow: 2px 2px 20px rgba($color: #000000, $alpha: 0.2);
+}

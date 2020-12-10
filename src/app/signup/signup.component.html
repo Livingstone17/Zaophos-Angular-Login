@@ -1,0 +1,119 @@
+<div class="container-fluid">
+  <div class="row container">
+    <div class="col col-md-7 col-sm-12" id="decorator">
+      <div class="overlay"></div>
+      <img src="/assets/images/login.svg" alt="" />
+    </div>
+    <div class="col col-md-5 col-sm-12">
+      <h3>Members Sign Up</h3>
+      <form class="form" #form="ngForm" (ngSubmit)="onSubmit(form)">
+        <div class="form-group">
+          <input
+            name="name"
+            type="text"
+            placeholder="enter your full name"
+            class="form-control"
+            #nameField="ngModel"
+            [(ngModel)]="user.name"
+            [class.field-error]="form.submitted && nameField.invalid"
+            required
+          />
+          <small [hidden]="!form.submitted || nameField.touched"
+            >Please enter your name</small
+          >
+        </div>
+        <div class="form-group">
+          <input
+            name="email"
+            #emailField="ngModel"
+            class="form-control"
+            placeholder="enter your email address"
+            required
+            pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+            [(ngModel)]="user.email"
+            [class.field-error]="form.submitted && emailField.invalid"
+          />
+          <small [hidden]="!form.submitted || emailField.valid"
+            >Please enter a valid email</small
+          >
+          <small [hidden]="!form.submitted || emailField.dirty"
+            ><i> for instance: example@me.com</i></small
+          >
+        </div>
+        <div class="form-group">
+          <input
+            name="username"
+            type="text"
+            class="form-control"
+            placeholder=" enter prefered username"
+            [(ngModel)]="user.username"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            name="password"
+            type="password"
+            class="form-control"
+            [(ngModel)]="user.password"
+            placeholder="enter password"
+            #passwordField="ngModel"
+            [class.field-error]="form.submitted && passwordField.invalid"
+            required
+            pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
+          />
+          <small [hidden]="!form.submitted || passwordField.valid"
+            >Please enter your password</small
+          >
+          <small [hidden]="!form.submitted || passwordField.dirty"
+            ><i
+              >password must contain atleast one uppercase character, one
+              lowercase character and a special character</i
+            ></small
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="selectCountry" id="locationLabel"
+            >Select Country of residence</label
+          >
+          <select
+            class="select"
+            id="selectCountry"
+            required
+            name="locations"
+            [(ngModel)]="user.locations"
+          >
+            <option
+              *ngFor="let location of locations | async"
+              [selected]="true"
+              [value]="location"
+            >
+              {{ location }}
+            </option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="policy">
+            <input
+              type="checkbox"
+              name="policy"
+              id="policy"
+              [(ngModel)]="user.policy"
+            />
+            I already understand your terms and conditions</label
+          >
+        </div>
+        <button type="submit" class="btn btn-primary">Register</button>
+      </form>
+      <div class="success" [hidden]="!postSuccessMessage">
+        {{ postSuccessMessage }}
+      </div>
+      <p>
+        Already have an Account?
+        <a routerLink="/login" routerLinkActive="active"
+          ><button>Sign in</button></a
+        >
+      </p>
+    </div>
+  </div>
+</div>
